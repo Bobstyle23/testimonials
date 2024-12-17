@@ -1,0 +1,72 @@
+$body-background-color: #ecf2f8;
+
+%extend author-style {
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  background-color: $body-background-color;
+  color: #fff;
+}
+
+.main-container {
+  max-width: 111.1rem;
+  margin: 16rem auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 28.2rem 26.6rem;
+  row-gap: 2.4rem;
+  column-gap: 3rem;
+
+  section {
+    border-radius: 0.8rem;
+  }
+
+  .testimonial {
+    &__daniel {
+      grid-column: 1 / span 2;
+      background-color: #733fc8;
+    }
+
+    &__jonathan {
+      background-color: #48556a;
+    }
+
+    &__kira {
+      grid-row: 1 / 3;
+      grid-column: 4;
+      background-color: #fff;
+      box-shadow: 40px 60px 50px -47px rgba($color: #48556a, $alpha: 0.25);
+    }
+
+    &__jeanette {
+      background-color: #fff;
+      box-shadow: 40px 60px 50px -47px rgba($color: #48556a, $alpha: 0.25);
+    }
+
+    &__patrick {
+      grid-column: 2 / 4;
+      grid-row: 2;
+      background-color: #19202d;
+    }
+  }
+}
