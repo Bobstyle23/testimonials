@@ -232,3 +232,53 @@ body {
     }
   }
 }
+
+/* HACK: small mobiles (320px ~ 480px) */
+/* HACK: large mobiles (481px ~ 767px) */
+/* HACK: tablets (768px ~ 1024px) */
+
+@media (min-width: 20em) and (max-width: 30em) {
+  .main-container {
+    margin: 7rem 2.4rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    .testimonial {
+      &__daniel,
+      &__kira,
+      &__patrick {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      &__jeanette {
+        grid-row: 3;
+      }
+      &__patrick {
+        grid-row: 4;
+      }
+    }
+  }
+}
+
+@media (min-width: 30em) and (max-width: 64em) {
+  .main-container {
+    margin: 7rem 2.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+
+    .testimonial {
+      &__daniel,
+      &__kira,
+      &__patrick {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      &__jeanette,
+      &__patrick {
+        grid-row: 2;
+      }
+    }
+  }
+}

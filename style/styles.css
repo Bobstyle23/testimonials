@@ -183,4 +183,39 @@ body {
   opacity: 70%;
 }
 
+/* HACK: small mobiles (320px ~ 480px) */
+/* HACK: large mobiles (481px ~ 767px) */
+/* HACK: tablets (768px ~ 1024px) */
+@media (min-width: 20em) and (max-width: 30em) {
+  .main-container {
+    margin: 7rem 2.4rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .main-container .testimonial__daniel, .main-container .testimonial__kira, .main-container .testimonial__patrick {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .main-container .testimonial__jeanette {
+    grid-row: 3;
+  }
+  .main-container .testimonial__patrick {
+    grid-row: 4;
+  }
+}
+@media (min-width: 30em) and (max-width: 64em) {
+  .main-container {
+    margin: 7rem 2.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .main-container .testimonial__daniel, .main-container .testimonial__kira, .main-container .testimonial__patrick {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .main-container .testimonial__jeanette, .main-container .testimonial__patrick {
+    grid-row: 2;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
