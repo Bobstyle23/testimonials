@@ -18,6 +18,22 @@ $white-background-color: #fff;
   color: #fff;
 }
 
+@mixin review-heading-style($color: #fff) {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1.6rem;
+  color: $color;
+}
+
+@mixin review-quote-style($color: #fff) {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: $color;
+  opacity: 70%;
+}
+
 @mixin image-border-style($color) {
   border: 2px solid $color;
 }
@@ -61,6 +77,7 @@ body {
   article {
     border-radius: 0.8rem;
     padding: 3.2rem;
+    box-shadow: $card-shadow;
 
     &:nth-child(1) {
       img {
@@ -77,6 +94,8 @@ body {
 
   .testimonial {
     &__header {
+      margin-bottom: 1.8rem;
+
       &-image {
         @extend %flexbox-style;
         gap: 1.7rem;
@@ -121,29 +140,82 @@ body {
         }
       }
     }
+
     &__daniel {
       @include grid-item-positioning(auto, 1 / span 2);
       background-color: #733fc8;
+
+      .testimonial__review {
+        &-heading {
+          @include review-heading-style;
+        }
+
+        &-quote {
+          @include review-quote-style(#cfcfcf);
+        }
+      }
     }
 
     &__jonathan {
       background-color: #48556a;
+      .testimonial__review {
+        &-heading {
+          @include review-heading-style;
+        }
+
+        &-quote {
+          @include review-quote-style;
+        }
+      }
     }
 
     &__kira {
       @include grid-item-positioning(1 / span 2, 4);
       background-color: $white-background-color;
-      box-shadow: $card-shadow;
+      .testimonial__review {
+        &-heading {
+          @include review-heading-style(#48556a);
+        }
+
+        &-quote {
+          @include review-quote-style(#48556a);
+        }
+      }
     }
 
     &__jeanette {
       background-color: $white-background-color;
-      box-shadow: $card-shadow;
+      .testimonial__review {
+        &-heading {
+          @include review-heading-style(#48556a);
+        }
+
+        &-quote {
+          @include review-quote-style(#48556a);
+        }
+      }
     }
 
     &__patrick {
       @include grid-item-positioning(2, 2 / span 2);
       background-color: #19202d;
+      .testimonial__review {
+        &-heading {
+          font-size: 2rem;
+          font-weight: 600;
+          line-height: 1.2;
+          margin-bottom: 1.6rem;
+          color: #ecf2f8;
+        }
+
+        &-quote {
+          font-size: 1.3rem;
+          font-weight: 500;
+          line-height: 1.4;
+          color: #fff;
+          opacity: 70%;
+        }
+      }
     }
   }
 }
