@@ -84,6 +84,17 @@ body {
   grid-column: 1/span 2;
   grid-row: auto;
   background-color: #733fc8;
+  position: relative;
+  z-index: 1;
+}
+.main-container .testimonial__daniel .testimonial__review-quotation {
+  position: absolute;
+  top: 0;
+  right: 15%;
+  z-index: -1;
+}
+.main-container .testimonial__daniel .testimonial__review-quotation img {
+  border: none;
 }
 .main-container .testimonial__daniel .testimonial__review-heading {
   font-size: 2rem;

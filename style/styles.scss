@@ -144,8 +144,21 @@ body {
     &__daniel {
       @include grid-item-positioning(auto, 1 / span 2);
       background-color: #733fc8;
+      position: relative;
+      z-index: 1;
 
       .testimonial__review {
+        &-quotation {
+          position: absolute;
+          top: 0;
+          right: 15%;
+          z-index: -1;
+
+          img {
+            border: none;
+          }
+        }
+
         &-heading {
           @include review-heading-style;
         }
