@@ -6,9 +6,9 @@ $card-shadow: 40px 60px 50px -47px
   );
 $white-background-color: #fff;
 
-%flexbox-style {
+%flexbox {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 %typography-style {
@@ -29,7 +29,7 @@ $white-background-color: #fff;
 @mixin review-quote-style($color: #fff) {
   font-size: 1.3rem;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.8rem;
   color: $color;
   opacity: 70%;
 }
@@ -41,6 +41,19 @@ $white-background-color: #fff;
 @mixin grid-item-positioning($row: auto, $column: auto) {
   grid-column: $column;
   grid-row: $row;
+}
+
+@mixin flexbox(
+  $direction: column,
+  $gap: 1.8rem,
+  $align: center,
+  $justify: center
+) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
 }
 
 *,
@@ -64,221 +77,128 @@ body {
   color: #fff;
 }
 
-.main-container {
-  max-width: 111.1rem;
-  margin: 16rem auto;
-  height: auto;
+.main {
+  max-width: 111rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 28.2rem 26.6rem;
+  grid-template-columns: 1fr;
   row-gap: 2.4rem;
-  column-gap: 3rem;
-
-  article {
-    border-radius: 0.8rem;
-    padding: 3.2rem;
-    box-shadow: $card-shadow;
-
-    &:nth-child(1) {
-      img {
-        @include image-border-style(#a775f1);
-      }
-    }
-
-    &:nth-child(4) {
-      img {
-        @include image-border-style(#733fc8);
-      }
-    }
-  }
-
-  .testimonial {
-    &__header {
-      margin-bottom: 1.8rem;
-
-      &-image {
-        @extend %flexbox-style;
-        gap: 1.7rem;
-
-        img {
-          width: 2.8rem;
-          height: 2.8rem;
-          border-radius: 50%;
-        }
-      }
-
-      figcaption {
-        @extend %flexbox-style;
-        flex-direction: column;
-        align-items: baseline;
-        gap: 0.4rem;
-      }
-
-      &-name {
-        &--light {
-          @extend %typography-style;
-        }
-
-        &--dark {
-          @extend %typography-style;
-          color: #48556a;
-        }
-      }
-
-      &-position {
-        &--light {
-          @extend %typography-style;
-          font-size: 1.1rem;
-          opacity: 50%;
-        }
-
-        &--dark {
-          @extend %typography-style;
-          color: #48556a;
-          font-size: 1.1rem;
-          opacity: 50%;
-        }
-      }
-    }
-
-    &__daniel {
-      @include grid-item-positioning(auto, 1 / span 2);
-      background-color: #733fc8;
-      position: relative;
-      z-index: 1;
-
-      .testimonial__review {
-        &-quotation {
-          position: absolute;
-          top: 0;
-          right: 15%;
-          z-index: -1;
-
-          img {
-            border: none;
-          }
-        }
-
-        &-heading {
-          @include review-heading-style;
-        }
-
-        &-quote {
-          @include review-quote-style(#cfcfcf);
-        }
-      }
-    }
-
-    &__jonathan {
-      background-color: #48556a;
-      .testimonial__review {
-        &-heading {
-          @include review-heading-style;
-        }
-
-        &-quote {
-          @include review-quote-style;
-        }
-      }
-    }
-
-    &__kira {
-      @include grid-item-positioning(1 / span 2, 4);
-      background-color: $white-background-color;
-      .testimonial__review {
-        &-heading {
-          @include review-heading-style(#48556a);
-        }
-
-        &-quote {
-          @include review-quote-style(#48556a);
-        }
-      }
-    }
-
-    &__jeanette {
-      background-color: $white-background-color;
-      .testimonial__review {
-        &-heading {
-          @include review-heading-style(#48556a);
-        }
-
-        &-quote {
-          @include review-quote-style(#48556a);
-        }
-      }
-    }
-
-    &__patrick {
-      @include grid-item-positioning(2, 2 / span 2);
-      background-color: #19202d;
-      .testimonial__review {
-        &-heading {
-          font-size: 2rem;
-          font-weight: 600;
-          line-height: 1.2;
-          margin-bottom: 1.6rem;
-          color: #ecf2f8;
-        }
-
-        &-quote {
-          font-size: 1.3rem;
-          font-weight: 500;
-          line-height: 1.4;
-          color: #fff;
-          opacity: 70%;
-        }
-      }
-    }
-  }
+  margin: 7.1rem 2.4rem;
 }
 
-/* HACK: small mobiles (320px ~ 480px) */
-/* HACK: large mobiles (481px ~ 767px) */
-/* HACK: tablets (768px ~ 1024px) */
+.testimonial {
+  @include flexbox($align: flex-start);
+  padding: 2.6rem 3.2rem 3.2rem;
+  border-radius: 0.8rem;
 
-@media (min-width: 20em) and (max-width: 30em) {
-  .main-container {
-    margin: 7rem 2.4rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  &:nth-child(1),
+  &:nth-child(4) {
+    img {
+      @include image-border-style(#a775f1);
+    }
+  }
 
-    .testimonial {
-      &__daniel,
-      &__kira,
-      &__patrick {
-        grid-column: auto;
-        grid-row: auto;
-      }
+  &__header {
+    @include flexbox($direction: row, $justify: flex-start, $gap: 1.7rem);
+  }
 
-      &__jeanette {
-        grid-row: 3;
-      }
-      &__patrick {
-        grid-row: 4;
+  &__author {
+    @include flexbox($gap: 0.4rem, $align: flex-start);
+  }
+
+  &__image {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+  }
+
+  &__name,
+  &__position {
+    @extend %typography-style;
+
+    &--light {
+      color: #fff;
+    }
+
+    &--dark {
+      color: #48556a;
+    }
+  }
+
+  &__position {
+    font-size: 1.1rem;
+    opacity: 50%;
+  }
+
+  &__review {
+    &-heading {
+      @include review-heading-style(#fff);
+    }
+
+    &-quote {
+      @include review-quote-style(#cfcfcf);
+    }
+
+    &-quotation {
+      position: absolute;
+      top: 0;
+      right: 2.4rem;
+      z-index: -1;
+      img {
+        border: none !important;
       }
     }
   }
-}
 
-@media (min-width: 30em) and (max-width: 64em) {
-  .main-container {
-    margin: 7rem 2.4rem;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+  &__daniel {
+    background-color: #733fc8;
+    position: relative;
+    z-index: 1;
 
-    .testimonial {
-      &__daniel,
-      &__kira,
-      &__patrick {
-        grid-column: auto;
-        grid-row: auto;
-      }
+    h2 {
+      margin-bottom: 4rem;
+    }
+  }
 
-      &__jeanette,
-      &__patrick {
-        grid-row: 2;
-      }
+  &__jonathan {
+    background-color: #48556a;
+
+    blockquote {
+      color: #fff;
+    }
+  }
+
+  &__kira {
+    @include grid-item-positioning($row: 5);
+    background-color: #fff;
+    h2 {
+      color: #48556a;
+    }
+
+    blockquote {
+      color: #48556a;
+    }
+  }
+
+  &__patrick {
+    background-color: #19202d;
+    h2 {
+      color: #ecf2f8;
+    }
+
+    blockquote {
+      color: #fff;
+    }
+  }
+
+  &__jeanette {
+    @include grid-item-positioning($row: 3 / span 1);
+    background-color: #fff;
+    h2 {
+      color: #48556a;
+    }
+
+    blockquote {
+      color: #48556a;
     }
   }
 }
