@@ -117,9 +117,7 @@ body {
   grid-row: 5;
   background-color: #fff;
 }
-.testimonial__kira h2 {
-  color: #48556a;
-}
+.testimonial__kira h2,
 .testimonial__kira blockquote {
   color: #48556a;
 }
@@ -137,9 +135,7 @@ body {
   grid-row: 3/span 1;
   background-color: #fff;
 }
-.testimonial__jeanette h2 {
-  color: #48556a;
-}
+.testimonial__jeanette h2,
 .testimonial__jeanette blockquote {
   color: #48556a;
 }

@@ -170,10 +170,7 @@ body {
   &__kira {
     @include grid-item-positioning($row: 5);
     background-color: #fff;
-    h2 {
-      color: #48556a;
-    }
-
+    h2,
     blockquote {
       color: #48556a;
     }
@@ -193,10 +190,7 @@ body {
   &__jeanette {
     @include grid-item-positioning($row: 3 / span 1);
     background-color: #fff;
-    h2 {
-      color: #48556a;
-    }
-
+    h2,
     blockquote {
       color: #48556a;
     }
