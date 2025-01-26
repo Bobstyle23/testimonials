@@ -178,6 +178,9 @@ body {
   .testimonial__patrick {
     grid-column: 2/4;
   }
+  .testimonial__review-quotation {
+    right: 8rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

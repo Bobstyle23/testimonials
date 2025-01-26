@@ -244,5 +244,10 @@ body {
     &__patrick {
       grid-column: 2 / 4;
     }
+    &__review {
+      &-quotation {
+        right: 8rem;
+      }
+    }
   }
 }
