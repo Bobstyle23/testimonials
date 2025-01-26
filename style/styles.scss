@@ -235,14 +235,26 @@ body {
     &__kira {
       grid-column: 4;
       grid-row: 1 / -1;
+
+      h2 {
+        margin-bottom: 2.4rem;
+      }
     }
 
     &__jeanette {
       grid-row: 2;
+
+      h2 {
+        margin-bottom: 2.4rem;
+      }
     }
 
     &__patrick {
       grid-column: 2 / 4;
+
+      h2 {
+        margin-bottom: 2.4rem;
+      }
     }
     &__review {
       &-quotation {

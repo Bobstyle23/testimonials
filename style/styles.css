@@ -172,11 +172,20 @@ body {
     grid-column: 4;
     grid-row: 1/-1;
   }
+  .testimonial__kira h2 {
+    margin-bottom: 2.4rem;
+  }
   .testimonial__jeanette {
     grid-row: 2;
   }
+  .testimonial__jeanette h2 {
+    margin-bottom: 2.4rem;
+  }
   .testimonial__patrick {
     grid-column: 2/4;
+  }
+  .testimonial__patrick h2 {
+    margin-bottom: 2.4rem;
   }
   .testimonial__review-quotation {
     right: 8rem;
