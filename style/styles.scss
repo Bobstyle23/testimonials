@@ -81,7 +81,7 @@ body {
   max-width: 111rem;
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 2.4rem;
+  gap: 2.4rem;
   margin: 7.1rem 2.4rem;
 }
 
@@ -89,6 +89,7 @@ body {
   @include flexbox($align: flex-start);
   padding: 2.6rem 3.2rem 3.2rem;
   border-radius: 0.8rem;
+  box-shadow: $card-shadow;
 
   &:nth-child(1),
   &:nth-child(4) {
@@ -193,6 +194,55 @@ body {
     h2,
     blockquote {
       color: #48556a;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial {
+    justify-content: flex-start;
+
+    &__kira {
+      grid-column: 2 / 3;
+      grid-row: 1;
+    }
+  }
+}
+
+@media (min-width: 72.5em) {
+  .main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 28.2rem 26.6rem;
+    margin: 16.4rem auto;
+    gap: 0;
+    column-gap: 3rem;
+    row-gap: 2.4rem;
+  }
+
+  .testimonial {
+    &__daniel {
+      grid-column: 1 / 3;
+
+      h2 {
+        margin-bottom: 1.6rem;
+      }
+    }
+
+    &__kira {
+      grid-column: 4;
+      grid-row: 1 / -1;
+    }
+
+    &__jeanette {
+      grid-row: 2;
+    }
+
+    &__patrick {
+      grid-column: 2 / 4;
     }
   }
 }
